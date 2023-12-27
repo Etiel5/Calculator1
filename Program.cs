@@ -1,6 +1,5 @@
 ﻿using Tools;
 using Enumerations;
-using System.Security.Claims;
 
 namespace Calculator
 {
