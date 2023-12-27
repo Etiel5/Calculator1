@@ -4,24 +4,24 @@ namespace Tools
 {
     class Numbers
     {
-        public static int GetNumber()
+        public static double GetNumber()
         {
-            int number;
-            while(!int.TryParse(Console.ReadLine(), out number))
+            double number;
+            while(!double.TryParse(Console.ReadLine(), out number))
             {
                 Texts.Questions(CalculatorInputType.EnterNumber);
             }
             return number;
         }
-        public static CalculatorInputType GetOperation()
+        public static Operations GetOperation()
         {
-            CalculatorInputType operation;
-            
+            Operations operation;
+
             while(true)
             {
-                if(Enum.TryParse<CalculatorInputType>(Console.ReadLine(), out operation))
+                if(Enum.TryParse<Operations>(Console.ReadLine(), out operation))
                 {
-                    if(Enum.IsDefined(typeof(CalculatorInputType), operation))
+                    if(Enum.IsDefined(typeof(Operations), operation))
                         break;
                 }
 
@@ -29,6 +29,27 @@ namespace Tools
             }
 
             return operation;
+        }
+        public static double GetResult(double firstNumber, Operations operation, double secondNumber)
+        {
+            double result = 0;
+            switch(operation)
+            {
+                case Operations.Sum:
+                    result = firstNumber + secondNumber;
+                    break;
+                case Operations.Subtraction:
+                    result = firstNumber - secondNumber;
+                    break;
+                case Operations.Multiplication:
+                    result = firstNumber * secondNumber;
+                    break;
+                case Operations.Division:
+                    result = firstNumber / secondNumber;
+                    break;
+            }
+
+            return result;
         }
     }
 }

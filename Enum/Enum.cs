@@ -5,9 +5,9 @@ namespace Enumerations
         EnterOperation
     }
     enum Operations{
-        Sum,
-        Subtraction,
-        Multiplication,
-        Division
+        Sum = 1,
+        Subtraction = 2,
+        Multiplication = 3,
+        Division = 4
     }
 }

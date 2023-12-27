@@ -7,6 +7,7 @@ namespace Tools
     {
         public static void Welcome()
         {
+            Console.Clear();
             var stringBuilder = new StringBuilder();
             stringBuilder.AppendLine("Welcome to this program.");
             stringBuilder.Append("Calculator");
@@ -22,6 +23,7 @@ namespace Tools
                 case CalculatorInputType.EnterNumber:
                     stringBuilder.AppendLine("Insert a number.");
                     break;
+                
                 case CalculatorInputType.EnterOperation:
                     stringBuilder.AppendLine("Choose one operation:");
                     stringBuilder.AppendLine("1. Sum");
@@ -30,6 +32,30 @@ namespace Tools
                     stringBuilder.AppendLine("4. Division");
                     break;
             }
+            Console.WriteLine(stringBuilder);
+        }
+        public static void Result(double firstNumber, Operations operation, double secondNumber)
+        {
+            Console.Clear();
+            var stringBuilder = new StringBuilder();
+            double result = Numbers.GetResult(firstNumber, operation, secondNumber);
+
+            switch (operation)
+            {
+                case Operations.Sum:
+                stringBuilder.AppendLine($"The result of {firstNumber} plus {secondNumber} is {result}");
+                    break;
+                case Operations.Subtraction:
+                    stringBuilder.AppendLine($"The result of {firstNumber} minus {secondNumber} is {result}");
+                    break;
+                case Operations.Multiplication:
+                    stringBuilder.AppendLine($"The result of multiplying {firstNumber} by {secondNumber} is {result}");
+                    break;
+                case Operations.Division:
+                    stringBuilder.AppendLine($"The result of {firstNumber} divided by {secondNumber} is {result}");
+                    break;
+            }
+
             Console.WriteLine(stringBuilder);
         }
     }

@@ -10,11 +10,12 @@ namespace Calculator
         {
             Texts.Welcome();
             Texts.Questions(CalculatorInputType.EnterNumber);
-            int firstNumber = Numbers.GetNumber();
+            double firstNumber = Numbers.GetNumber();
             Texts.Questions(CalculatorInputType.EnterOperation);
-            CalculatorInputType operation = Numbers.GetOperation();
+            Operations operation = Numbers.GetOperation();
             Texts.Questions(CalculatorInputType.EnterNumber);
-            int secondNumber = Numbers.GetNumber();
+            double secondNumber = Numbers.GetNumber();
+            Texts.Result(firstNumber, operation, secondNumber);
         }
     }
 }
