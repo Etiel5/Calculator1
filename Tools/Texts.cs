@@ -31,10 +31,15 @@ namespace Tools
                     stringBuilder.AppendLine("3. Multiplication");
                     stringBuilder.AppendLine("4. Division");
                     break;
+                case CalculatorInputType.EnterBool:
+                    stringBuilder.AppendLine("Do you want to continue?");
+                    stringBuilder.AppendLine("1. Yes");
+                    stringBuilder.AppendLine("2. No");
+                    break;
             }
             Console.WriteLine(stringBuilder);
         }
-        public static void Result(double firstNumber, Operations operation, double secondNumber)
+        public static void FinalResult(double firstNumber, Operations operation, double secondNumber)
         {
             Console.Clear();
             var stringBuilder = new StringBuilder();
@@ -57,6 +62,14 @@ namespace Tools
             }
 
             Console.WriteLine(stringBuilder);
+        }
+        public static void ActualNumber(double firstNumber)
+        {
+            Console.Clear();
+            var stringBuilder = new StringBuilder();
+            stringBuilder.AppendLine($"The actual number is: {firstNumber}");
+            Console.WriteLine(stringBuilder);
+            Console.Read();
         }
     }
 }

@@ -15,7 +15,13 @@ namespace Calculator
             Operations operation = Numbers.GetOperation();
             Texts.Questions(CalculatorInputType.EnterNumber);
             double secondNumber = Numbers.GetNumber();
-            Texts.Result(firstNumber, operation, secondNumber);
+            Texts.Questions(CalculatorInputType.EnterBool);
+            if(Booleans.GetContinueOrNot())
+            {
+                Infinite.Infinity(firstNumber, operation, secondNumber);
+            }
+            else
+                Texts.FinalResult(firstNumber, operation, secondNumber);
         }
     }
 }
